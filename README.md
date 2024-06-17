@@ -49,4 +49,3 @@ Para garantir a segurança, o banco de dados não é configurado com o usuário 
 ## Testando a Conexão
 
 Para testar a conexão entre a aplicação e o banco de dados, acesse `http://localhost:3000` e verifique as operações da aplicação que dependem do banco de dados.
-# nestjs_docker_rocketeseat
