@@ -18,6 +18,7 @@ services:
 
   db:
     image: postgres:13
+    restart: always
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
@@ -27,7 +28,7 @@ services:
     networks:
       - app-network
     ports:
-      - '5432:5432' # Adicionando a porta para expor o serviço de banco de dados
+      - 5432:5432 # Adicionando a porta para expor o serviço de banco de dados
 
 networks:
   app-network:
