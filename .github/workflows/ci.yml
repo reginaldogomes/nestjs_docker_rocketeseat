@@ -20,3 +20,9 @@ jobs:
           cache: 'npm'
       - run: npm
       - run: npm run test
+
+      - name: Configure npm for private packages
+        run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Install dependencies
+        run: npm install
