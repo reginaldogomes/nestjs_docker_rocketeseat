@@ -7,22 +7,32 @@ on:
 
 jobs:
   build:
-    name: 'Build and Push'
+    name: 'Build and Test'
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the code
       - uses: actions/checkout@v4
 
-      - name: Setup node
+      # Setup Node.js and cache dependencies
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
-      - run: npm
-      - run: npm run test
 
+      # Configure npm for private packages (if applicable)
       - name: Configure npm for private packages
         run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
+      # Install dependencies
       - name: Install dependencies
         run: npm install
+
+      # Run tests
+      - name: Run tests
+        run: npm run test
+
+      # Build the project (if applicable)
+      - name: Build project
+        run: npm run build
