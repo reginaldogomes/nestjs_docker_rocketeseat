@@ -36,6 +36,12 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Generate Tag
+        id: generate_tag
+        run: |
+          SHA=$(echo $GITHUB_SHA | head -c7)
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
+
       # Build the project (if applicable)
       - name: Build docker image
-        run: docker build -t nestjs_docker_rocketseat .
+        run: docker build -t nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}} .
