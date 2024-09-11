@@ -35,3 +35,7 @@ jobs:
       # Build the project (if applicable)
       - name: Build project
         run: npm run build
+
+      # Build the project (if applicable)
+      - name: Build docker image
+        run: docker build -t nestjs_docker_rocketseat .
