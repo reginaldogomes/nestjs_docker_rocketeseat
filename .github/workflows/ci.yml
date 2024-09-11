@@ -61,5 +61,5 @@ jobs:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           TAG: ${{ steps.generate_tag.outputs.sha }}
         run: |
-          docker-build -t $REGISTRY/nestjs_docker_rocketeseat:$TAG .
+          docker build -t $REGISTRY/nestjs_docker_rocketeseat:$TAG .
           docker push $REGISTRY/nestjs_docker_rocketeseat:$TAG
