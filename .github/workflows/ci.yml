@@ -55,22 +55,11 @@ jobs:
       - name: Login to AWS ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-      # - name: Login into the container registry
-      #   uses: docker/login-action@v3
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # # # Build docker image (if applicable)
-      # - name: Build docker image
-      #   run: docker build -t bhsolutions/nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}} .
-
-      # # Push image registry
-      # - name: Push image
-      #   run: docker push bhsolutions/nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}}
-
-      # - name: Build and Push
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     push: true
-      #     tags: bhsolutions/nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}},bhsolutions/nestjs_docker_rocketseat:latest
+      - name: build docker image
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          TAG: ${{ steps.generate_tag.outputs.sha }}
+        run: |
+          docker-build -t $REGISTRY/nestjs_docker_rocketeseat:$TAG .
+          docker push $REGISTRY/nestjs_docker_rocketeseat:$TAG
