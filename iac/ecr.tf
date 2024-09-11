@@ -1,5 +1,5 @@
-resource "aws_ecr_repository" "rocketseat-ci-api" {
-  name                 = "rocketseat-ci"
+resource "aws_ecr_repository" "nestjs_docker_rocketeseat" {
+  name                 = "nestjs_docker_rocketeseat"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
