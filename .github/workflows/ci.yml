@@ -55,3 +55,9 @@ jobs:
       # Push image registry
       - name: Push image
         run: docker push bhsolutions/nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: bhsolutions/nestjs_docker_rocketseat:${{ steps.generate_tag.outputs.sha}},bhsolutions/nestjs_docker_rocketseat:latest
