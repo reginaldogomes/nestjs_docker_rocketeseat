@@ -2,12 +2,17 @@
 
 ## Descrição
 
-Este projeto configura um ambiente multi-container usando Docker Compose, com uma aplicação NestJS e um banco de dados PostgreSQL.
+Este projeto configura um ambiente multi-container usando Docker Compose, integrando uma aplicação NestJS com um banco de dados PostgreSQL. Adicionalmente, utiliza Terraform para provisionar a infraestrutura como código (IaC), e a automação de CI/CD é realizada com GitHub Actions, realizando deploy da imagem Docker na AWS App Runner.
+
+Este repositório faz parte do projeto de finalização da Formação DevOps da Rocketseat.
 
 ## Pré-requisitos
 
 - Docker
 - Docker Compose
+- Terraform
+- AWS CLI configurado com as permissões adequadas
+- GitHub Actions configurado no repositório
 
 ## Configuração
 
