@@ -63,3 +63,13 @@ jobs:
         run: |
           docker build -t $REGISTRY/nestjs_docker_rocketeseat:$TAG .
           docker push $REGISTRY/nestjs_docker_rocketeseat:$TAG
+
+      - name: Deploy to App Runner
+        uses: awslabs/amazon-app-runner-deploy@main
+        with:
+          service: nestjs_docker_rocketseat
+          access-role-arn: arn:aws:iam::322462248532:role/app-runner-role
+          region: us-east-1
+          cpu: 1
+          memory: 1
+          port: 3000
