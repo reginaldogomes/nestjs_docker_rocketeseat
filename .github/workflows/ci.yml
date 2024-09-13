@@ -64,6 +64,8 @@ jobs:
         run: |
           docker build -t $REGISTRY/nestjs_docker_rocketeseat:$TAG .
           docker push $REGISTRY/nestjs_docker_rocketeseat:$TAG
+          docker tag $REGISTRY/nestjs_docker_rocketeseat:$TAG $REGISTRY/nestjs_docker_rocketeseat:latest
+          docker push $REGISTRY/nestjs_docker_rocketeseat:latest
           IMAGE=$(echo $REGISTRY/nestjs_docker_rocketeseat:$TAG)
           echo "image=$IMAGE" >> $GITHUB_OUTPUT
 
@@ -77,3 +79,7 @@ jobs:
           cpu: 1
           memory: 2
           port: 3000
+          wait-for-service-stability-seconds: 180
+
+      - name: App Runner Check
+        run: echo "App Runner running... ${{ steps.deploy-app-runner.outputs.service-url }}"
