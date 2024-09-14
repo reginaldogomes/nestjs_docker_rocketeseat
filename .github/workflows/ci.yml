@@ -78,7 +78,7 @@ jobs:
         uses: awslabs/amazon-app-runner-deploy@main
         with:
           service: nestjs_docker_rocketseat
-          image: ${{ steps.build-docker-image.outputs.image}}
+          image: ${{ steps.build-docker-image.outputs.image }}
           access-role-arn: arn:aws:iam::322462248532:role/app-runner-role
           region: us-east-1
           cpu: 1
