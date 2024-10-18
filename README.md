@@ -19,8 +19,8 @@ Este repositório faz parte do projeto de finalização da Formação DevOps da 
 1. Clone este repositório:
 
    ```sh
-   git clone <URL do repositório>
-   cd <nome do repositório>
+   git clone [<URL do repositório>](https://github.com/reginaldogomes/nestjs_docker_rocketeseat)
+   cd nestjs_docker_rocketeseat
    ```
 
 2. Crie um arquivo `.env` baseado no modelo abaixo:
